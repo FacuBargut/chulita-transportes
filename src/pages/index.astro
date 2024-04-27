@@ -1,0 +1,51 @@
+---
+import About from '../components/About.astro';
+import Carousel from '../components/Carousel.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header/Header.astro';
+import MainLayout from '../components/MainLayout.astro';
+import MobileMenu from '../components/MobileMenu/MobileMenu';
+
+import Services from '../components/Services.astro';
+import Units from '../components/Units.astro';
+import WhatsappButton from '../components/WhatsappButton/WhatsappButton';
+
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<Header client:load/>
+		<Carousel/>
+		<MainLayout>
+			<Services client:load slot="services"/>
+			<About client:load slot="about"/>
+			<Units client:load slot="units"/>
+			<Contact client:load slot="contact"/>
+		</MainLayout>
+		<Footer client:load/>
+		<MobileMenu client:load/>
+		<WhatsappButton client:load>
+	</body>
+</html>
+
+
+<style is:global>
+	html, *, body{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Inter', sans-serif;
+	}
+
+	body.menu-open{
+		overflow-y: hidden;
+	}
+</style>

@@ -1,0 +1,22 @@
+
+
+
+<main>
+    <slot name="services"/>
+    <slot name="about"/>
+    <slot name="units"/>
+    <slot name="contact"/>
+</main>
+
+
+<style>
+    main{
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+        padding: 0 1rem;
+        @media screen and (min-width: 576px) {
+            padding: 0 5rem;    
+        }
+    }
+</style>

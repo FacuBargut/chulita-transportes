@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+ import truck1 from '../assets/carousel/truck-1.png';
+ import truck2 from '../assets/carousel/truck-2.png';
+ import truck3 from '../assets/carousel/truck-3.png';
+
+ 
+---
+
+<!-- Slider main container -->
+<div class="swiper">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">
+        <Image src={truck1} alt={'Camion'}/>
+    </div>
+    <div class="swiper-slide">
+        <Image src={truck2} alt={'Camion'}/>
+    </div>
+    <div class="swiper-slide">
+        <Image src={truck3} alt={'Camion'}/>
+    </div>
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
+</div>
+
+<script>
+  // Import Swiper elements
+  import Swiper from "swiper";
+  import { Navigation, Pagination } from "swiper/modules";
+
+  // Import Swiper styles
+  import "swiper/css";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+  const swiper = new Swiper(".swiper", {
+    // configure Swiper to use modules
+    modules: [Navigation, Pagination],
+    // Optional parameters
+    direction: "horizontal",
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+      el: ".swiper-pagination",
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+      el: ".swiper-scrollbar",
+    },
+  });
+</script>
+
+
+<style>
+    .swiper{
+        .swiper-wrapper{
+            .swiper-slide{
+                img{
+                    width: 100%;
+                    height: 90vh;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+</style>

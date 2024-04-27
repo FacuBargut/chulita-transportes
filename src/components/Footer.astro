@@ -1,0 +1,45 @@
+
+
+<footer>
+    <ul>
+        <li>Inicio</li>
+        <li class="services">Servicios</li>
+        <li class="about">Quienes somos</li>
+        <li class="units">Unidades</li>
+        <li class="contact">Contacto</li>
+    </ul>
+</footer>
+
+<script>
+     document.querySelectorAll('footer ul li').forEach(element => {
+    element.addEventListener('click', (e:Event) => {
+      e.preventDefault();
+      const targetId = element.className;
+      const targetSection = document.getElementById(targetId);
+      if(targetSection){
+        window.scrollTo({
+          top: targetSection.offsetTop,
+          behavior: 'smooth'
+        })
+      }
+    })
+  });
+</script>
+
+<style>
+    footer{
+        background-color: #0C134F;
+        padding: 100px 1rem;
+        ul{
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            list-style: none;
+            li{
+                color: #FFF;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        }
+    }
+</style>

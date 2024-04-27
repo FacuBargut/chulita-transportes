@@ -1,0 +1,56 @@
+---
+import Title from "./Title.astro";
+
+import unit1 from "../assets/units/unit-1.png";
+import unit2 from "../assets/units/unit-2.png";
+
+import { Image } from "astro:assets";
+---
+
+<section class="units" id="units">
+  <Title title="Unidades" />
+
+  <div
+    class="pswp-gallery pswp-gallery--single-column"
+    id="gallery--getting-started"
+  >
+    <a href={`/src/assets/units/unit-1.png`}>
+      <Image src={unit1} alt={"Unidad 1"} />
+    </a>
+    <a href={`/src/assets/units/unit-2.png`}>
+      <Image src={unit2} alt={"Unidad 1"} />
+    </a>
+  </div>
+</section>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "photoswipe/style.css";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#gallery--getting-started",
+    children: "a",
+    showHideAnimationType: "fade",
+    pswpModule: () => import("photoswipe"),
+  });
+  lightbox.init();
+</script>
+
+<style>
+  #gallery--getting-started {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    a {
+      img {
+        height: auto;
+        max-width: 100%;
+      }
+    }
+    @media screen and (min-width: 576px) {
+      flex-direction: row;
+    }
+  }
+</style>

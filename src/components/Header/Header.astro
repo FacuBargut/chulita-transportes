@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import logo from "../../assets/logo.png";
+import HamburgerButton from "./components/HamburgerButton";
+// import HamburgerButton from "./components/HamburgerButton";
+---
+
+<header class="header">
+  <Image
+    class="header__logo"
+    loading="lazy"
+    src={logo}
+    width={100}
+    height={75}
+    alt="Logo de la empresa"
+  />
+
+  <nav class="header__nav-links">
+    <li class="home">Inicio</li>
+    <li class="services">Servicios</li>
+    <li class="about">Quienes somos</li>
+    <li class="units">Unidades</li>
+    <li class="contact">Contacto</li>
+  </nav>
+
+  <HamburgerButton client:load />
+</header>
+
+<script>
+  document.querySelectorAll('header li').forEach(element => {
+    element.addEventListener('click', (e:Event) => {
+      e.preventDefault();
+      const targetId = element.className;
+      const targetSection = document.getElementById(targetId);
+      if(targetSection){
+        window.scrollTo({
+          top: targetSection.offsetTop,
+          behavior: 'smooth'
+        })
+      }
+    })
+  });
+</script>
+
+<style>
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    padding: 10px;
+  }
+
+  .header__nav-links {
+    display: none;
+  }
+
+  @media screen and (min-width: 576px) {
+    .header__nav-links {
+      display: flex;
+      gap: 10px;
+      li {
+        padding: 10px;
+        text-decoration: none;
+        color: #000;
+        list-style: none;
+        cursor: pointer;
+        &:last-child {
+          background-color: #0c134f;
+          color: #fff;
+        }
+      }
+    }
+    .header{
+      justify-content: space-around;
+      padding: 10px 0px;
+    }
+  }
+</style>

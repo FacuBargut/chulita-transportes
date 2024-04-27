@@ -1,0 +1,45 @@
+---
+import Title from "./Title.astro";
+---
+
+<section id="contact" class="contact">
+  <Title
+    title="Contacto"
+    subtitle="Envianos tu consulta y te responderemos a la brevedad"
+  />
+  <form>
+    <div class="form-control">
+      <input placeholder="Nombre" type="text" />
+      <input placeholder="Apellido" type="text" />
+    </div>
+    <input placeholder="E-mail" type="text" />
+    <textarea rows="15" placeholder="Consulta"></textarea>
+  </form>
+</section>
+
+<style>
+  form {
+    margin: 32px auto;
+    display: block;
+    width: 90%;
+    @media screen and (min-width: 1440px) {
+        width: 40%;
+    }
+    .form-control {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid #000;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    textarea {
+      width: 100%;
+      padding: 16px;
+    }
+  }
+</style>

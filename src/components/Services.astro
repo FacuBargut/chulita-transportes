@@ -1,0 +1,78 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+import Title from "./Title.astro";
+
+interface Service {
+  name: string;
+  description: string;
+  icon: ImageMetadata;
+}
+
+import ice from "../assets/services/ice.png";
+import truck from "../assets/services/truck.png";
+import shield from "../assets/services/shield.png";
+import satelite from "../assets/services/satelite.png";
+import contract from "../assets/services/contract.png";
+
+const services: Service[] = [
+  {
+    name: "Unidades térmicas",
+    description: "Balancín con equipos refrigerados con ganchera",
+    icon: ice,
+  },
+  {
+    name: "Transporte",
+    description:
+      "Encomienda, paquetería y mercadería desde Granadero Baigorria",
+    icon: truck,
+  },
+  {
+    name: "Mercadería asegurada",
+    description: "Tu mercadería cuenta con seguro de carga",
+    icon: shield,
+  },
+  {
+    name: "Servicio satelital",
+    description: "Trackeo de unidad en tiempo real",
+    icon: satelite,
+  },
+  {
+    name: "Habilitaciones",
+    description: "Contamos con habilitaciones correspondientes",
+    icon: contract,
+  },
+];
+---
+
+<section id=services class="services">
+  <Title title="Servicios" />
+
+  <div class="services__container">
+    {
+      services.map((service) => (
+        <ServiceCard
+          name={service.name}
+          description={service.description}
+          icon={service.icon}
+        />
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .services__container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 10px;
+    @media screen and (min-width: 576px) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+    }
+  }
+</style>
