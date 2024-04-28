@@ -22,17 +22,17 @@ import WhatsappButton from '../components/WhatsappButton/WhatsappButton';
 		<title>Astro</title>
 	</head>
 	<body>
-		<Header client:load/>
+		<Header/>
 		<Carousel/>
 		<MainLayout>
-			<Services client:load slot="services"/>
-			<About client:load slot="about"/>
-			<Units client:load slot="units"/>
-			<Contact client:load slot="contact"/>
+			<Services slot="services"/>
+			<About slot="about"/>
+			<Units slot="units"/>
+			<Contact slot="contact"/>
 		</MainLayout>
-		<Footer client:load/>
-		<MobileMenu client:load/>
-		<WhatsappButton client:load>
+		<Footer/>
+		<MobileMenu/>
+		<WhatsappButton>
 	</body>
 </html>
 
