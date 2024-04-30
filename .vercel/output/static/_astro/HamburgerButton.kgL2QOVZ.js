@@ -1,0 +1,1 @@
+import{u as t,j as s,i as o}from"./index.B51Nc47o.js";/* empty css                       */import"./index.zLbuJnpo.js";function a(){const e=t(o),n=()=>{o.set(!e),document.body.classList.toggle("menu-open",!e)};return s.jsx("div",{onClick:n,className:`hamburger_menu ${e?"open":""}`,children:s.jsx("div",{className:"hamburger_bar"})})}export{a as default};

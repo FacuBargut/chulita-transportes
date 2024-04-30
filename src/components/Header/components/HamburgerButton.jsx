@@ -6,7 +6,7 @@ export default function HamburgerButton() {
 
   const toggleMenu = () => {
     isMobileMenuOpen.set(!$isMobileMenuOpen);
-    document.body.classList.toggle('menu-open', !$isMobileMenuOpen)
+    document.body.classList.toggle("menu-open", !$isMobileMenuOpen);
   };
 
   return (
@@ -17,7 +17,4 @@ export default function HamburgerButton() {
       <div className="hamburger_bar"></div>
     </div>
   );
-}
-
-{
 }
