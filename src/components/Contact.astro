@@ -7,15 +7,40 @@ import Title from "./Title.astro";
     title="Contacto"
     subtitle="Envianos tu consulta y te responderemos a la brevedad"
   />
-  <form>
+  <form id="contact-form">
     <div class="form-control">
-      <input placeholder="Nombre" type="text" />
-      <input placeholder="Apellido" type="text" />
+      <input placeholder="Nombre" type="text" required />
+      <input placeholder="Apellido" type="text" required />
     </div>
-    <input placeholder="E-mail" type="text" />
-    <textarea rows="15" placeholder="Consulta"></textarea>
+    <input placeholder="E-mail" type="email" required />
+    <textarea rows="15" placeholder="Consulta" required></textarea>
+    <button id="submit">Enviar</button>
   </form>
 </section>
+
+<script>
+  import Swal from 'sweetalert2'
+  
+  const submitBtn: HTMLElement | null = document.getElementById("submit");
+  submitBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    const form: HTMLFormElement | null = document.getElementById(
+      "contact-form"
+    ) as HTMLFormElement;
+
+    if (form?.checkValidity()) {
+      Swal.fire({
+        title: "Tu consulta se envió con éxito",
+        text: "Re responderemos a la brevedad",
+        icon: "success",
+        confirmButtonColor: "#0c134f",
+        confirmButtonText: "Cerrar",
+      });
+    } else {
+      console.log("No se manda un carajo");
+    }
+  });
+</script>
 
 <style>
   form {
@@ -23,7 +48,7 @@ import Title from "./Title.astro";
     display: block;
     width: 90%;
     @media screen and (min-width: 1440px) {
-        width: 40%;
+      width: 40%;
     }
     .form-control {
       display: flex;
@@ -40,6 +65,15 @@ import Title from "./Title.astro";
     textarea {
       width: 100%;
       padding: 16px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #0c134f;
+      padding: 10px;
+      color: #fff;
+      border: 1px solid #0c134f;
+      cursor: pointer;
     }
   }
 </style>
