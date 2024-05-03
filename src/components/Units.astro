@@ -10,14 +10,21 @@ import { Image } from "astro:assets";
 <section class="units" id="units">
   <Title title="Unidades" />
 
-  <div
-    class="pswp-gallery pswp-gallery--single-column"
-    id="gallery--getting-started"
-  >
-    <a href={unit1.src}>
+  <div class="pswp-gallery gallery" id="gallery">
+    <a
+      href={unit1.src}
+      data-pswp-width="1875"
+      data-pswp-height="1500"
+      target="_blank"
+    >
       <Image src={unit1} alt={"Unidad 1"} />
     </a>
-    <a href={unit2.src}>
+    <a
+      href={unit2.src}
+      data-pswp-width="1875"
+      data-pswp-height="1500"
+      target="_blank"
+    >
       <Image src={unit2} alt={"Unidad 1"} />
     </a>
   </div>
@@ -26,18 +33,17 @@ import { Image } from "astro:assets";
 <script>
   import PhotoSwipeLightbox from "photoswipe/lightbox";
   import "photoswipe/style.css";
-  
+
   const lightbox = new PhotoSwipeLightbox({
-    gallery: "#gallery--getting-started",
+    gallery: "#gallery",
     children: "a",
-    showHideAnimationType: "fade",
     pswpModule: () => import("photoswipe"),
   });
   lightbox.init();
 </script>
 
 <style>
-  #gallery--getting-started {
+  #gallery {
     margin-top: 24px;
     display: flex;
     flex-direction: column;
