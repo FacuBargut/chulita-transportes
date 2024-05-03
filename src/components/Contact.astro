@@ -23,22 +23,24 @@ import Title from "./Title.astro";
   
   const submitBtn: HTMLElement | null = document.getElementById("submit");
   submitBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
+    e.stopPropagation();
     const form: HTMLFormElement | null = document.getElementById(
       "contact-form"
     ) as HTMLFormElement;
 
     if (form?.checkValidity()) {
+      e.preventDefault();
       Swal.fire({
         title: "Tu consulta se envió con éxito",
         text: "Re responderemos a la brevedad",
         icon: "success",
         confirmButtonColor: "#0c134f",
         confirmButtonText: "Cerrar",
-      });
-    } else {
-      console.log("No se manda un carajo");
-    }
+      }).then(() => {
+        // Llamo request api y envio
+        form.reset();
+      })
+    } 
   });
 </script>
 
